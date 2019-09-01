@@ -1,4 +1,5 @@
 import os #For Clearing Lines
+
 #These set of variables are to specify a place for each part of speech
 #in the world list and to prompt the user with a phrase to enter.
 noun = '> Enter a Noun\n'
@@ -14,16 +15,6 @@ wordlist = [noun, verb, adjective, propnoun, verb2, noun2]
 #Introduction to the game
 intro = 'Welcome to Mad Libs\nWhen prompted for a word type it and press enter.\n'
 
-#Story for the game, fills with words inputed into wordlist
-story = f'''
-    You find yourself lost and the first thing you see is a
-    {wordlist[0]}. You consider touching the {wordlist[0]}
-    however you {wordlist[1]} away when you see it start to transform.
-    The {wordlist[2]} object is morphing into a {wordlist[3]}
-    , your worst fear. You run and {wordlist[4]} but there is nowhere
-    to go in the void you find yourself in.  The last thing you see before
-    it consumes you is a {wordlist[5]}. You are relieved now.'''
-
 #Prompts user for input and returns value
 def user_input(prompt):
     response = input(prompt)
@@ -36,7 +27,19 @@ def main():
     for word in wordlist:
         wordlist[counter] = user_input(wordlist[counter])
         counter += 1
+    os.system('clear')
 
 print(intro)
 main()
+
+#Story for the game, fills with words inputed into wordlist
+story = f'''
+    You find yourself lost and the first thing you see is a
+    {wordlist[0]}. You consider touching the {wordlist[0]}
+    however you {wordlist[1]} away when you see it start to transform.
+    The {wordlist[2]} object is morphing into {wordlist[3]},
+    your worst fear. You run and {wordlist[4]} but there is nowhere
+    to go in the void you find yourself in.  The last thing you see before
+    it consumes you is a {wordlist[5]}. You are relieved now.\n'''
+
 print(story)
