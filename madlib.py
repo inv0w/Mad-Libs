@@ -1,24 +1,42 @@
 import os #For Clearing Lines
-nounlist = list() #Creates noun list
-adjlist = list() #Creates adjective list
-verblist = list() #Creates verb list
-propnoun = list() #Creates proper noun list
+#These set of variables are to specify a place for each part of speech
+#in the world list and to prompt the user with a phrase to enter.
+noun = '> Enter a Noun\n'
+noun2 = '> Enter a Noun\n'
+propnoun = '>Enter a Proper Noun\n'
+verb = '> Enter a Verb\n'
+verb2 = '> Enter a Verb\n'
+adjective = '>Enter an adjective\n'
 
+#Putting in place each word in the list to be replaced later.
+wordlist = [noun, verb, adjective, propnoun, verb2, noun2]
+
+#Introduction to the game
+intro = 'Welcome to Mad Libs\nWhen prompted for a word type it and press enter.\n'
+
+#Story for the game, fills with words inputed into wordlist
+story = f'''
+    You find yourself lost and the first thing you see is a
+    {wordlist[0]}. You consider touching the {wordlist[0]}
+    however you {wordlist[1]} away when you see it start to transform.
+    The {wordlist[2]} object is morphing into a {wordlist[3]}
+    , your worst fear. You run and {wordlist[4]} but there is nowhere
+    to go in the void you find yourself in.  The last thing you see before
+    it consumes you is a {wordlist[5]}. You are relieved now.'''
+
+#Prompts user for input and returns value
 def user_input(prompt):
     response = input(prompt)
     return response
 
-#def add(word):
+#Lists through wordlist and prints out each one. Then continues until the end
+#of the list and replaces each one with the users input.
+def main():
+    counter = 0
+    for word in wordlist:
+        wordlist[counter] = user_input(wordlist[counter])
+        counter += 1
 
-
-# story = f'''
-#     You find yourself lost and the first thing you see is a
-#     {nounlist[0]}. You consider touching the {nounlist[0]}
-#     however you {verblist[0]} away when you see it start to transform.
-#     The {adjlist[0]} object is morphing into a {nounlist[1]}
-#     , your worst fear. You run and {verblist[1]} but there is nowhere
-#     to go in the void you find yourself in.  The last thing you see before
-#     it consumes you is a {nounlist[2]}. You are relieved now.'''
-#
-#
-# print(story)
+print(intro)
+main()
+print(story)
