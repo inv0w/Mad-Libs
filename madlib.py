@@ -1,8 +1,8 @@
 import os #For Clearing Lines
+import colorful #For Colors | Reference: https://github.com/timofurrer/colorful
 
 #These set of variables are to specify a place for each part of speech
 #in the world list and to prompt the user with a phrase to enter.
-#Reference for list method and modified main() https://github.com/noltron000/mad-libs/blob/master/mad-libs.py
 noun = '> Enter a Noun\n'
 noun2 = '> Enter a Noun\n'
 propnoun = '>Enter a Proper Noun\n'
@@ -30,7 +30,7 @@ def main():
         counter += 1
     os.system('clear')
 
-print(intro)
+print(colorful.bold_white(intro))
 main()
 
 #Story for the game, fills with words inputed into wordlist
